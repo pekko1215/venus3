@@ -212,7 +212,7 @@ function main() {
 
 
         if(gamemode=="big"){
-            bonusdata.bonusgame--;
+            bonusdata.bonusgamecount--;
         }
 
         if(gamemode=="reg"||gamemode=="jac"){
@@ -463,6 +463,8 @@ function main() {
 
     sounder.loadFile(function () {
         window.sounder = sounder
+        sounder.setVolume('se',(50/100.)*0.05);
+        sounder.setVolume('bgm',(50/100.)*0.5)
         console.log(sounder)
     })
 
@@ -694,7 +696,6 @@ function main() {
         switch (gamemode) {
             case "big":
                 segments.effectseg.setSegments("" + bonusdata.jacincount + "-" + bonusdata.bonusgamecount);
-
                 break;
             case "reg":
                 segments.effectseg.setSegments("1-" + bonusdata.jacgetcount);
