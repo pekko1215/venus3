@@ -7,7 +7,7 @@ function SlotModuleMk2() {
     }, this)
 
     // ステージを作る
-    var stage = new PIXI.Stage(0xffffff);
+    var stage = new PIXI.Stage(0x000000);
     this.events = {};
     var backflash;
     // レンダラーを作る

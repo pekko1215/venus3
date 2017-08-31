@@ -3,7 +3,7 @@
  */
 var colordata = {
     DEFAULT_B:{
-        color:0x888888,
+        color:0xcccccc,
         alpha:0.5
     },
     DEFAULT_F: {

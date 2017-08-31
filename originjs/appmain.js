@@ -154,21 +154,29 @@ function main() {
                         case "BIG":
                             sounder.stopSound("bgm");
                             setGamemode('big');
-                            sounder.playSound("big1", true);
                             bonusdata = {
                                 bonusgamecount: 30,
                                 jacincount: 3
                             }
+                            nexter = true;
+                            slotmodule.once("payend",function(){
+                                sounder.playSound("big1", true);
+                                e.stopend()
+                            })
+
                             bonusflag = "none";
                             changeBonusSeg()
-                            isCT = false;
-                            isSBIG = true;
                             clearLamp()
                             break;
                         case "REG":
                             setGamemode('reg');
                             sounder.stopSound("bgm");
-                            sounder.playSound("jac3", true, null, 0.735);
+
+                            nexter = true;
+                            slotmodule.once("payend",function(){
+                                sounder.playSound("jac3", true);
+                                e.stopend()
+                            })
                             bonusdata = {
                                 jacincount:0,
                                 jacgamecount:12,
@@ -458,6 +466,8 @@ function main() {
     sounder.addFile("sound/jac1.mp3","jac1").addTag("jac").addTag("bgm");
     sounder.addFile("sound/jac2.mp3","jac2").addTag("jac").addTag("bgm");
     sounder.addFile("sound/jac3.mp3","jac3").addTag("jac").addTag("bgm");
+
+    sounder.addFile("sound/yokoku.mp3","yokoku").addTag("se");
 
     sounder.setVolume("jac",0.1)
 
@@ -758,6 +768,17 @@ function main() {
 
 
     function effect(lot) {
+        if(gamemode=="normal"){
+            if(bonusflag!="none"){
+                if(rand(4)==0){
+                    sounder.playSound("yokoku")
+                }
+            }else{
+                if(lot!="はずれ"&&rand(8)==0){
+                    sounder.playSound("yokoku")
+                }
+            }
+        }
     }
 
 

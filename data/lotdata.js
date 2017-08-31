@@ -20,7 +20,7 @@ var lotdata = {
     "big":[
         {
             name:"JACIN",
-            value:1/7.7
+            value:1/4.7
         }
     ],
     "jac":[
