@@ -205,8 +205,8 @@ function main() {
                     break;
                 case 'reg':
                 case 'jac':
-                    bonusdata.jacgetcount--;
                     changeBonusSeg()
+                    bonusdata.jacgetcount--;
             }
         })
 
@@ -216,9 +216,7 @@ function main() {
         }
     })
 
-    slotmodule.on("payend", function () {
-
-
+    slotmodule.on("leveron",function(){
         if(gamemode=="big"){
             bonusdata.bonusgamecount--;
         }
@@ -226,15 +224,18 @@ function main() {
         if(gamemode=="reg"||gamemode=="jac"){
             bonusdata.jacgamecount--;
         }
+    })
 
-        if (gamemode == "big" && bonusdata.bonusgame == 0) {
+    slotmodule.on("payend", function () {
+
+        if (gamemode == "big" && bonusdata.bonusgamecount == 0) {
             setGamemode('normal');
             sounder.stopSound("bgm")
             segments.effectseg.reset();
         }
 
         if(gamemode == "reg" || gamemode == "jac"){
-            if(bonusdata.jacgamecount<0||bonusdata.jacgetcount<0){
+            if(bonusdata.jacgamecount==0||bonusdata.jacgetcount==0){
                 if(bonusdata.jacincount==0){
                     setGamemode('normal');
                     sounder.stopSound("bgm")
@@ -317,7 +318,6 @@ function main() {
 
                 lot = window.power || lot;
                 window.power = undefined
-                console.log(lot)
                 switch (lot) {
                     case "リプレイ":
                         ret = lot
@@ -478,56 +478,13 @@ function main() {
         console.log(sounder)
     })
 
-    var normalLotter = new Lotter(lotdata.normal);
-    var bigLotter = new Lotter(lotdata.big);
-    var jacLotter = new Lotter(lotdata.jac);
+    var settei = 0;
+
+    var normalLotter = new Lotter(lotdata[settei].normal);
+    var bigLotter = new Lotter(lotdata[settei].big);
+    var jacLotter = new Lotter(lotdata[settei].jac);
 
 
-    var black = false;
-    if(black){
-        var stock = {
-            big:0,
-            reg:0,
-            rt:null
-        };
-        var zyotai = false;
-        normalLotter.pipe(function(lot){
-            switch(lot.name){
-                case "BIG":
-                    if(rand(2)==0){
-                        zyotai = true;
-                        stock.rt = rand(32)+1;
-                    }else{
-                        lot.name = null
-                        stock.big++;
-                    }
-                    break;
-            }
-            if(zyotai){
-                if(bonusflag=="none"){
-                    if(stock.rt == null){
-                        zyotai = false;
-                    }else{
-                        stock.rt--;
-                        if(stock.rt==0){
-                            if(rand(2)==0){
-                                stock.rt = rand(32)+1;
-                            }else{
-                                stock.rt = null;
-                            }
-                            if(rand(3)!=0){
-                                lot.name = "BIG"
-                            }else{
-                                lot.name = "REG"
-                                stock.rt = rand(32)+1;
-                            }
-                        }
-                    }
-                }
-            }
-            return lot
-        })
-    }
 
     var gamemode = "normal";
     var bonusflag = "none"
@@ -537,14 +494,8 @@ function main() {
     var replayflag;
 
     var isCT = false;
-    var CTBIG = false;
     var isSBIG;
     var ctdata = {};
-    var regstart;
-
-    var afterNotice;
-    var bonusSelectIndex;
-    var ctNoticed;
 
     var playcount = 0;
     var allplaycount = 0;
@@ -558,7 +509,6 @@ function main() {
     };
 
     slotmodule.on("leveron", function () {
-
         if (gamemode == "normal") {
             playcount++;
             allplaycount++;
@@ -568,6 +518,11 @@ function main() {
                     bonus: gamemode,
                     game: playcount
                 })
+                if(gamemode in bonuscounter.count){
+                    bonuscounter.count[gamemode]++;
+                }else{
+                    bonuscounter.count[gamemode] = 1;
+                }
                 playcount = 0;
             }
         }
@@ -583,8 +538,8 @@ function main() {
             outcoin: outcoin,
             playcount: playcount,
             allplaycount: allplaycount,
-            name: "はにゃはにゃ",
-            id: "nya"
+            name: "ビーナス3",
+            id: "venus3"
         }
     }
 
@@ -664,6 +619,7 @@ function main() {
                     slotmodule.setLotMode(2)
                 });
                 slotmodule.setMaxbet(1);
+                break;
             case 'jac':
                 gamemode = 'jac';
                 slotmodule.once("payend", function () {
@@ -705,12 +661,14 @@ function main() {
     function changeBonusSeg() {
         switch (gamemode) {
             case "big":
-                segments.effectseg.setSegments("" + bonusdata.jacincount + "-" + bonusdata.bonusgamecount);
+                segments.effectseg.setSegments("" + (bonusdata.jacincount ) + "-" + bonusdata.bonusgamecount);
                 break;
             case "reg":
-                segments.effectseg.setSegments("1-" + bonusdata.jacgetcount);
+                if(bonusdata.jacgetcount==0){return}
+                segments.effectseg.setSegments("1-" + (bonusdata.jacgetcount+1));
                 break;
             case "jac":
+                if(bonusdata.jacgetcount==0){return}
                 segments.effectseg.setSegments("" + (bonusdata.jacincount + 1) + "-" + bonusdata.jacgetcount);
                 break;
         }
@@ -785,8 +743,14 @@ function main() {
     $(window).bind("unload", function () {
         SaveData();
     });
-
-    LoadData();
+    var query = getUrlVars();
+    if("online" in query&&query.online){
+        var data = LoadOnline();
+        settei = data.settei;
+        parseSaveData(data);
+    }else{
+        LoadData();
+    }
 }
 
 function and() {
@@ -834,4 +798,25 @@ function segInit(selector, size) {
     sc.setOnColor(230, 0, 0)
     sc.reset();
     return sc;
+}
+
+/**
+ * URL解析して、クエリ文字列を返す
+ * @returns {Array} クエリ文字列
+ */
+function getUrlVars()
+{
+    var vars = [], max = 0, hash = "", array = "";
+    var url = window.location.search;
+
+    //?を取り除くため、1から始める。複数のクエリ文字列に対応するため、&で区切る
+    hash  = url.slice(1).split('&');
+    max = hash.length;
+    for (var i = 0; i < max; i++) {
+        array = hash[i].split('=');    //keyと値に分割。
+        vars.push(array[0]);    //末尾にクエリ文字列のkeyを挿入。
+        vars[array[0]] = array[1];    //先ほど確保したkeyに、値を代入。
+    }
+
+    return vars;
 }
