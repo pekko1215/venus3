@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ec7bd8f-b693-48a4-8f1e-322d9205a56d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/control.rcd" afterPath="$PROJECT_DIR$/data/control.rcd" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/originjs/OnlineSlotModule.js" afterPath="$PROJECT_DIR$/originjs/OnlineSlotModule.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/originjs/appmain.js" afterPath="$PROJECT_DIR$/originjs/appmain.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -24,8 +22,8 @@
       <file leaf-file-name="appmain.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/originjs/appmain.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="746" column="11" lean-forward="false" selection-start-line="746" selection-start-column="11" selection-end-line="746" selection-end-column="11" />
+            <state relative-caret-position="299">
+              <caret line="745" column="30" lean-forward="false" selection-start-line="745" selection-start-column="30" selection-end-line="745" selection-end-column="30" />
               <folding>
                 <element signature="e#170#3878#0" expanded="false" />
                 <element signature="e#13020#13749#0" expanded="false" />
@@ -87,8 +85,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="47" lean-forward="false" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="47" />
+            <state relative-caret-position="102">
+              <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -364,7 +362,7 @@
       <updated>1503624954972</updated>
       <workItem from="1503624958260" duration="41124000" />
       <workItem from="1504082334543" duration="31676000" />
-      <workItem from="1504437018591" duration="906000" />
+      <workItem from="1504437018591" duration="1341000" />
     </task>
     <task id="LOCAL-00001" summary="dwada">
       <created>1504152181629</created>
@@ -387,11 +385,18 @@
       <option name="project" value="LOCAL" />
       <updated>1504413508748</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="dawdwad">
+      <created>1504438332293</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1504438332293</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73706000" />
+    <option name="totallyTimeSpent" value="74141000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="814" height="867" extended-state="0" />
@@ -531,6 +536,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -538,6 +544,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -545,6 +552,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -552,6 +560,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -583,6 +594,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="901">
           <caret line="53" column="14" lean-forward="false" selection-start-line="53" selection-start-column="11" selection-end-line="53" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -611,6 +623,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -618,6 +633,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -625,6 +641,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -632,6 +649,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
           <caret line="34" column="15" lean-forward="false" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -639,6 +657,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="25" column="27" lean-forward="false" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -698,14 +717,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="47" lean-forward="false" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/originjs/OnlineSlotModule.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -714,10 +725,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/originjs/appmain.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="746" column="11" lean-forward="false" selection-start-line="746" selection-start-column="11" selection-end-line="746" selection-end-column="11" />
+        <state relative-caret-position="299">
+          <caret line="745" column="30" lean-forward="false" selection-start-line="745" selection-start-column="30" selection-end-line="745" selection-end-column="30" />
           <folding>
             <element signature="e#170#3878#0" expanded="false" />
             <element signature="e#13020#13749#0" expanded="false" />

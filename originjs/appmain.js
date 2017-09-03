@@ -743,15 +743,15 @@ function main() {
     var query = getUrlVars();
     if("online" in query&&query.online){
         var data = LoadOnline();
-        settei = data.settei;
+        settei = data.settei-1;
         "id" in data&&parseSaveData(data);
     }else{
         LoadData();
     }
 
-    var normalLotter = new Lotter(lotdata[settei].normal);
-    var bigLotter = new Lotter(lotdata[settei].big);
-    var jacLotter = new Lotter(lotdata[settei].jac);
+    window.normalLotter = new Lotter(lotdata[settei].normal);
+    window.bigLotter = new Lotter(lotdata[settei].big);
+    window.jacLotter = new Lotter(lotdata[settei].jac);
 }
 
 function and() {
