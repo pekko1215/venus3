@@ -480,9 +480,6 @@ function main() {
 
     var settei = 0;
 
-    var normalLotter = new Lotter(lotdata[settei].normal);
-    var bigLotter = new Lotter(lotdata[settei].big);
-    var jacLotter = new Lotter(lotdata[settei].jac);
 
 
 
@@ -747,10 +744,14 @@ function main() {
     if("online" in query&&query.online){
         var data = LoadOnline();
         settei = data.settei;
-        parseSaveData(data);
+        "id" in data&&parseSaveData(data);
     }else{
         LoadData();
     }
+
+    var normalLotter = new Lotter(lotdata[settei].normal);
+    var bigLotter = new Lotter(lotdata[settei].big);
+    var jacLotter = new Lotter(lotdata[settei].jac);
 }
 
 function and() {

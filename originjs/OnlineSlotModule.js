@@ -3,7 +3,11 @@
  */
 var LoadOnline = function(){
     var query = getUrlVars();
-    var data = JSON.parse(atob(atob(query.data)));
-    console.log(data);
+    try {
+        var data = JSON.parse(atob(atob(query.data)));
+        window.ClearData();
+    }catch(e){
+        return false;
+    }
     return data;
 }
